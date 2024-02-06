@@ -1,0 +1,74 @@
+@import '@components/Shared/common.scss';
+
+.shipment {
+  z-index: 50;
+  background-color: white;
+  border-radius: 12px;
+  height: fit-content;
+  width: calc( ((100vw - 60px + 20px) / 4) - 60px );
+  padding: 20px;
+  text-align:center;
+  position: relative;
+  &__{
+    &edit{
+      color: $main-color;
+    }
+
+    &destination-error, &loadability-error {
+      display: none;
+      backdrop-filter: blur(3px);
+      height: 100%;
+      width: 100%;
+      z-index: 100;
+      font-size: 50px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 12px;
+    }
+
+    &destination-error-text, &loadability-error-text {
+      position: absolute;
+      color: red;
+      -webkit-text-stroke: 1.5px black;
+      font-weight: bold;
+      top: 30%;
+      text-align: center;
+      width: 100%;
+    }
+
+    &delete {
+      cursor: pointer;
+    }
+
+    &new-cargo{
+      @include white-button;
+      width: 100% !important;
+    }
+
+    &cargo-list{
+      height: fit-content;
+      min-height: 10px;
+      padding-bottom: 10px;
+    }
+  }
+}
+
+
+@media (max-width: 760px) {
+  .shipment {
+    width: 100vw !important;
+  }
+}
+
+@media (max-width: 1350px) and (min-width:1101px) {
+  .shipment {
+    width: calc( ((100vw - 60px + 20px) / 3) - 60px ) !important;
+  }
+}
+@media (max-width: 1100px) and (min-width:761px) {
+  .shipment {
+    width: calc( ((100vw - 60px + 20px) / 2) - 60px ) !important;
+  }
+}
+

@@ -1,0 +1,47 @@
+@import '@components/Shared/common.scss';
+
+.cargo {
+    border: 1px solid $main-color;
+    margin-top: 10px;
+    border-radius: 12px;
+    padding-bottom: 10px;
+    &__remove-button {
+        @include white-button;
+        display: inline !important;
+        margin-top: 10px;
+        padding: 5px;
+    }
+
+    &__edit-button {
+        @include white-button;
+        display: inline !important;
+        margin-top: 10px;
+        padding: 5px;
+    }
+
+    &__data {
+        color: white;
+        font-weight: 700;
+        background-color: $main-color;
+        border: 1px solid lightgray;
+        padding: 10px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        cursor: move;
+    }
+
+    &_selected {
+        opacity: 0.6;
+    }
+
+    &_fake-selected {
+        pointer-events: none;
+        opacity: 0.6;
+        position: fixed;
+        left: 0;
+        top:0;
+        width: 186.67px;
+        z-index: 100;
+        text-align: center;
+    }
+}

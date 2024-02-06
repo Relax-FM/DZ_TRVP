@@ -1,0 +1,83 @@
+$bg-color: #f8f2ec;
+$white-color: white;
+$main-color: #FF8A4D;
+$error-color: red;
+
+body {
+  margin: 0;
+  background-color: $bg-color;
+  font-family: sans-serif;
+  word-wrap: break-word;
+  font-size: 1rem;
+}
+
+@mixin button () {
+  height: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  word-wrap: break-word;
+  border-radius: 12px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  cursor:pointer;
+}
+
+@mixin white-button {
+  @include button;
+  background: $white-color;
+  color: black;
+  border: 1px solid $main-color;
+}
+
+@mixin main-color-button {
+  @include button;
+  background-color: $main-color;
+  color: $white-color;
+  border: none;
+}
+
+.target-separator {
+  position: relative;
+  align-self: stretch;
+  border: 1px rgba(0, 0, 0, 0.10) solid
+}
+
+.footer {
+  font-size: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  background-color: white;
+  width: 100%;
+  height: 3vh;
+  text-align: center;
+  position: sticky;
+  bottom: 0;
+}
+
+@mixin ava-figure {
+  border-radius: 999px;
+  overflow: hidden;
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+
+.ava-figure {
+  border-radius: 999px;
+  overflow: hidden;
+  height: 100%;
+  aspect-ratio: 1/1;
+  position: relative;
+}
+
+select {
+  background-color: $white-color;
+  border-radius: 12px;
+  border-color: $main-color;
+  padding: 5px;
+}
+
+* {
+  scrollbar-width: none;
+}

@@ -1,0 +1,63 @@
+<div class="shipment">
+    <div class="shipment__destination-error">
+        <p class="shipment__destination-error-text">
+            Пункт назначения не совпадает
+        </p>
+    </div>
+    <div class="shipment__loadability-error">
+        <p class="shipment__loadability-error-text">
+            Недостаточно места
+        </p>
+    </div>
+    <h2>Рейс # <span class="shipment__id">{{shipment.id}}</span></h2>
+    <br>
+    <h3 class="shipment__edit">Редактировать</h3>
+    <br>
+    <select name="cars" id="cars" class="shipment__select-car" disabled>
+        {{#each cars}}
+            {{#if (ifEq this.plate ../shipment.car_plate)}}
+                <option value="{{this.plate}}" data-load="{{this.load}}"
+                        selected>{{this.model}} {{this.load}} мест
+                </option>
+            {{else}}
+                {{#if this.busy}}
+                    <option value="{{this.plate}}" data-load="{{this.load}}"
+                            disabled>{{this.model}} {{this.load}} мест
+                    </option>
+                {{else}}
+                    <option value="{{this.plate}}" data-load="{{this.load}}">{{this.model}} {{this.load}}
+                        мест
+                    </option>
+                {{/if}}
+            {{/if}}
+        {{/each}}
+    </select>
+    <br>
+    <br>
+    Пункт назначения:
+    <select name="destinations" id="destinations" class="shipment__destinations" disabled>
+        {{#each destinations}}
+            {{#if (ifEq this.destination_id ../shipment.destination_id)}}
+                <option value="{{this.destination_id}}" selected>
+                    {{this.destination}}
+                </option>
+            {{else}}
+                <option value="{{this.destination_id}}">
+                    {{this.destination}}
+                </option>
+            {{/if}}
+        {{/each}}
+    </select>
+    <br>
+    <br>
+    Мест: <span class="shipment__places">{{shipment.places}}</span>
+    <br>
+    <div class="shipment__cargo-list list-{{shipment.id}}">
+        {{#each shipment.cargos}}
+            {{>cargo this}}
+        {{/each}}
+    </div>
+    <button type="button" class="shipment__new-cargo"> &#10010; Добавить груз</button>
+    <br>
+    <h3 class="shipment__delete" style="color: #FF4D4D">Удалить рейс</h3>
+</div>

@@ -1,0 +1,41 @@
+<div class="shipments">
+    {{#each shipments}}
+        {{>shipment shipment=this cars=../cars destinations=../destinations}}
+    {{/each}}
+    <div class="shipments__new-shipment-block">
+        <button class="shipments__new-shipment-btn"> &#10010; Добавить рейс</button>
+    </div>
+</div>
+
+
+<dialog class="new-cargo-dialog">
+
+    <p>Параметры груза</p>
+
+    <p class="new-cargo-dialog__error" style="color: red"></p>
+
+    <form method="dialog" class="new-cargo-dialog__form">
+        <div class="new-cargo-dialog__form-grid">
+            <div>
+                <div class = "new-cargo-dialog__category"> Название груза </div>
+                <div class = "new-cargo-dialog__category2"> Объём </div>
+                <div class = "new-cargo-dialog__category2"> Количество </div>
+            </div>
+            <div>
+                <input type="text" name="name" class="new-cargo-dialog__cargo-name" placeholder="Название груза" required>
+                <br>
+                <input type="number" name="volume" class="new-cargo-dialog__cargo-volume" placeholder="Объём груза" min="1" required>
+                <br>
+                <input type="number" name="amount" class="new-cargo-dialog__cargo-amount" placeholder="Количество груза" min="1" required>
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="new-cargo-dialog__ok-button">OK</button>
+        <button type="button" class="new-cargo-dialog__cancel-button">Отмена</button>
+    </form>
+</dialog>
+<dialog class="confirm-remove-dialog">
+    <h2>Вы действительно хотите удалить <span class = "confirm-remove-dialog_type"></span> </h2>
+        <button type="submit" class="confirm-remove-dialog__ok-button">Да</button>
+        <button type="button" class="confirm-remove-dialog__cancel-button">Нет</button>
+</dialog>

@@ -1,0 +1,94 @@
+@import '@components/Shared/common.scss';
+
+.shipments {
+  padding-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  &__{
+     &new-shipment-block{
+      background-color: white;
+      border-radius: 12px;
+      height: fit-content;
+       width: calc( ((100vw - 60px + 20px) / 4) - 60px );
+      padding: 20px;
+      text-align:center;
+    }
+
+    &new-shipment-btn{
+      @include white-button;
+      width: 100% !important;
+    }
+  }
+}
+
+.new-cargo-dialog {
+  text-align: center;
+  &__{
+    &form-grid{
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 40% 40% 10%;
+    }
+
+    &category {
+      margin-top: 15px;
+    }
+
+    &category2 {
+      margin-top: 41px;
+    }
+
+    &ok-button {
+      @include white-button;
+      text-align: center;
+      display: inline;
+    }
+
+    &cancel-button {
+      @include white-button;
+      display: inline;
+    }
+  }
+}
+
+.confirm-remove-dialog {
+  text-align: center;
+  &__{
+    &ok-button {;
+      @include white-button;
+      margin-top: 10px;
+      width:75px !important;
+      text-align: center;
+      display: inline;
+    }
+
+    &cancel-button {
+      @include white-button;
+      width:75px !important;
+      display: inline;
+    }
+  }
+}
+
+input {
+  flex-direction: row;
+  border-radius: 12px;
+  padding: 5px;
+  border-color: $main-color;
+  display: block;
+  margin-top: 10px;
+}
+
+dialog {
+  border: 2px solid $main-color;
+  border-radius: 12px;
+}
+
+label {
+  display: block;
+  width: 100%;
+}
